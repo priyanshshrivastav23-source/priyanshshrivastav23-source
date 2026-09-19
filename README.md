@@ -1,5 +1,3 @@
-# 💫 About Me
-
 <p align="center">
   <img src="./assets/github_about_banner.png" width="100%" alt="Priyansh - AI, Robotics & Software Development"/>
 </p>
