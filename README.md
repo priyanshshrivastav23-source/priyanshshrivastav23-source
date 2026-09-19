@@ -83,8 +83,6 @@
 ![Flutter](https://img.shields.io/badge/Flutter-161B22?style=for-the-badge&logo=flutter&logoColor=54C5F8)
 ![Unity](https://img.shields.io/badge/Unity-161B22?style=for-the-badge&logo=unity&logoColor=FFFFFF)
 
-<br>
-
 ![AI/ML](https://img.shields.io/badge/AI%2FML-161B22?style=for-the-badge&logo=tensorflow&logoColor=FF6F00)
 ![Computer Vision](https://img.shields.io/badge/Computer%20Vision-161B22?style=for-the-badge&logo=opencv&logoColor=5C3EE8)
 ![Architecture](https://img.shields.io/badge/Project%20Architecture-161B22?style=for-the-badge&logo=blueprint&logoColor=58A6FF)
