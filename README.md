@@ -22,11 +22,11 @@
 
 ## 🔨 <font color="#58A6FF">What I'm Building</font>
 
-🔹 🥽 **AR-based Safety Training**  
-🔹 🔗 **AI-powered Traceability Systems**  
-🔹 🤖 **AI/ML-powered solutions**  
-🔹 🚀 **Hackathon & real-world projects**  
-🔹 📱 **Flutter applications**
+🥽 **AR-based Safety Training**  
+🔗 **AI-powered Traceability Systems**  
+🤖 **AI/ML-powered solutions**  
+🚀 **Hackathon & real-world projects**  
+📱 **Flutter applications**
 
 </td>
 
@@ -34,11 +34,11 @@
 
 ## 🌱 <font color="#3FB950">What I'm Learning</font>
 
-🔹 🧠 **Artificial Intelligence & Machine Learning**  
-🔹 👁️ **Computer Vision**  
-🔹 🥽 **AR Foundation & Unity**  
-🔹 ⚙️ **Backend Development**  
-🔹 ☁️ **Cloud & System Design**
+🧠 **Artificial Intelligence & Machine Learning**  
+👁️ **Computer Vision**  
+🥽 **AR Foundation & Unity**  
+⚙️ **Backend Development**  
+☁️ **Cloud & System Design**
 
 </td>
 </tr>
