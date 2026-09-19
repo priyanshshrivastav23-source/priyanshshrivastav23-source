@@ -9,6 +9,10 @@
 </p>
 
 <p align="center">
+  <h2 align="center">👋 Hey there! I'm Priyansh.</h2>
+</p>
+
+<p align="center">
   <i>Turning ambitious ideas into functional prototypes, meaningful projects, and real-world solutions.</i>
 </p>
 
