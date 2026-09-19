@@ -7,7 +7,7 @@
 <br>
 
 <p align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&pause=1000&color=58A6FF&center=true&vCenter=true&width=750&lines=Building+Ideas+into+Real+Solutions+%F0%9F%9A%80;AI%2FML+%7C+Computer+Vision+%7C+AR%2FVR+%7C+Robotics;Flutter+Developer+%7C+Problem+Solver;Always+Learning+%2C+Always+Building+%F0%9F%94%A5" alt="Typing SVG"/>
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&pause=1000&color=58A6FF&center=true&vCenter=true&width=750&lines=Building+Ideas+into+Real+Solutions+%F0%9F%9A%80;AI%2FML+%7C+Robotics+%7C+Full+Stack+Development;Full+Stack+Developer+%7C+Problem+Solver;Always+Learning+%2C+Always+Building+%F0%9F%94%A5" alt="Typing SVG"/>
 </p>
 
 <p align="center">
