@@ -1,0 +1,38 @@
+<svg width="495" height="195" viewBox="0 0 495 195" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="GitHub Streak Card">
+  <style>
+    .big-num { font: 700 28px 'Segoe UI', Ubuntu, Sans-Serif; fill: #82AAFF; text-anchor: middle; }
+    .curr-num { font: 700 30px 'Segoe UI', Ubuntu, Sans-Serif; fill: #89DDFF; text-anchor: middle; }
+    .lbl { font: 400 14px 'Segoe UI', Ubuntu, Sans-Serif; fill: #82AAFF; text-anchor: middle; }
+    .sub-lbl { font: 400 12px 'Segoe UI', Ubuntu, Sans-Serif; fill: #27E8A7; text-anchor: middle; }
+  </style>
+  <rect x="0.5" y="0.5" width="494" height="194" rx="8" fill="#242938" stroke="#30363D"/>
+  
+  <!-- Divider Lines -->
+  <line x1="165" y1="28" x2="165" y2="170" stroke="#30363D" stroke-width="1"/>
+  <line x1="330" y1="28" x2="330" y2="170" stroke="#30363D" stroke-width="1"/>
+  
+  <!-- Column 1: Total Contributions -->
+  <g transform="translate(82.5, 48)">
+    <text x="0" y="32" class="big-num">60</text>
+    <text x="0" y="68" class="lbl">Total Contributions</text>
+    <text x="0" y="98" class="sub-lbl">Aug 22, 2025 - Present</text>
+  </g>
+  
+  <!-- Column 2: Current Streak -->
+  <g transform="translate(247.5, 48)">
+    <!-- Ring circle around streak number -->
+    <circle cx="0" cy="22" r="38" stroke="#82AAFF" stroke-width="4" fill="none"/>
+    <!-- Fire Emoji -->
+    <text x="0" y="-12" text-anchor="middle" font-size="20">🔥</text>
+    <text x="0" y="32" class="curr-num">3</text>
+    <text x="0" y="92" class="lbl" font-weight="700" fill="#89DDFF">Current Streak</text>
+    <text x="0" y="116" class="sub-lbl">Sep 30 - Oct 02</text>
+  </g>
+  
+  <!-- Column 3: Longest Streak -->
+  <g transform="translate(412.5, 48)">
+    <text x="0" y="32" class="big-num">3</text>
+    <text x="0" y="68" class="lbl">Longest Streak</text>
+    <text x="0" y="98" class="sub-lbl">Sep 23 - Sep 25</text>
+  </g>
+</svg>
