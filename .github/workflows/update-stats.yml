@@ -1,15 +1,15 @@
-name: Update GitHub Stats & Private Metrics
+name: Auto-Sync GitHub Stats & Commits
 
 on:
   schedule:
-    - cron: '0 */6 * * *' # Run every 6 hours
-  workflow_dispatch: # Allow manual trigger
+    - cron: '0 */2 * * *' # Automatically runs every 2 hours
+  workflow_dispatch: # Allows manual trigger anytime
   push:
     branches:
       - main
 
 jobs:
-  build:
+  update-stats:
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -22,20 +22,20 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Generate Stats Card
+      - name: Run Stats Generator
         env:
           GH_TOKEN: ${{ secrets.METRICS_TOKEN || secrets.GITHUB_TOKEN }}
         run: |
           python .github/scripts/generate_stats.py
 
-      - name: Commit and push if changed
+      - name: Commit & Push Updated Stats Card
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add assets/github-stats.svg
           if git diff --staged --quiet; then
-            echo "No changes in stats."
+            echo "No stats changes detected."
           else
-            git commit -m "chore: auto-update GitHub stats with latest commits"
+            git commit -m "chore(stats): auto-update stats card with latest commits"
             git push
           fi
