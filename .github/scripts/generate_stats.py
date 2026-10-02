@@ -47,7 +47,7 @@ def graphql_query(token, query, variables=None):
 
 def main():
     username, token = get_git_token()
-    print(f"Generating stats for {username}...")
+    print(f"Generating stats strictly for username: {username} (excluding priyansh@email.com / priyansh@gmail.com / priyansh605)...")
     
     # 1. Fetch all repositories (public and private)
     all_repos = []
@@ -60,17 +60,15 @@ def main():
         else:
             break
 
-    total_public_repos = sum(1 for r in all_repos if not r["private"])
-    total_private_repos = sum(1 for r in all_repos if r["private"])
     total_repos_count = len(all_repos)
 
-    # 2. Count commits across all repos (public + private)
-    total_public_commits = 0
-    total_private_commits = 0
+    # 2. Count commits ONLY authored by priyanshshrivastav23-source
+    # Exclude any commits with email priyansh@email.com or priyansh@gmail.com or login priyansh605
+    total_commits = 0
+    repo_breakdown = {}
     
     for repo in all_repos:
         repo_name = repo["full_name"]
-        is_private = repo["private"]
         c_page = 1
         commits_list = []
         while True:
@@ -93,15 +91,21 @@ def main():
             c_name = (commit_author.get("name") or "").strip().lower()
             c_email = (commit_author.get("email") or "").strip().lower()
             
-            if author_login == username.lower() or "priyansh" in c_name or "priyansh" in c_email:
+            # Explicitly exclude priyansh@email.com / priyansh@gmail.com / priyansh605
+            if "priyansh@email.com" in c_email or "priyansh@gmail.com" in c_email or author_login == "priyansh605":
+                continue
+                
+            # Only include if author_login matches priyanshshrivastav23-source or official email priyanshshrivastav8@gmail.com / priyanshshrivastav23@gmail.com
+            if author_login == username.lower() or c_email in ["priyanshshrivastav8@gmail.com", "priyanshshrivastav23@gmail.com"]:
                 user_c_count += 1
                 
-        if is_private:
-            total_private_commits += user_c_count
-        else:
-            total_public_commits += user_c_count
+        if user_c_count > 0:
+            repo_breakdown[repo_name] = user_c_count
+        total_commits += user_c_count
 
-    total_commits = total_public_commits + total_private_commits
+    print(f"Total Commits strictly by {username}: {total_commits}")
+    for r, cnt in repo_breakdown.items():
+        print(f"  {r}: {cnt} commits")
 
     # 3. Fetch GraphQL Contributions and Streak
     viewer_query = """
@@ -180,58 +184,52 @@ def main():
             current_streak += 1
             p -= 1
 
-    print(f"Stats: Total Commits: {total_commits} ({total_private_commits} private, {total_public_commits} public)")
     print(f"Total Contributions: {total_contributions}, Current Streak: {current_streak}, Longest Streak: {longest_streak}")
 
-    # Generate Beautiful Modern SVG Stats Card (blueberry theme matching your profile)
+    # Generate Clean, Beautiful Modern SVG Stats Card (Numbers ONLY, No private/public subtitles)
     stats_svg = f"""<svg width="495" height="195" viewBox="0 0 495 195" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="GitHub Stats Card">
   <style>
     .header {{ font: 700 18px 'Segoe UI', Ubuntu, Sans-Serif; fill: #82AAFF; }}
-    .stat-label {{ font: 600 13px 'Segoe UI', Ubuntu, Sans-Serif; fill: #82AAFF; }}
-    .stat-value {{ font: 700 14px 'Segoe UI', Ubuntu, Sans-Serif; fill: #FFFFFF; }}
-    .stat-sub {{ font: 400 11px 'Segoe UI', Ubuntu, Sans-Serif; fill: #27E8A7; }}
+    .stat-label {{ font: 600 14px 'Segoe UI', Ubuntu, Sans-Serif; fill: #82AAFF; }}
+    .stat-value {{ font: 700 16px 'Segoe UI', Ubuntu, Sans-Serif; fill: #FFFFFF; }}
     .rank-circle {{ stroke: #82AAFF; stroke-width: 4; fill: none; }}
     .rank-text {{ font: 800 24px 'Segoe UI', Ubuntu, Sans-Serif; fill: #89DDFF; }}
   </style>
   <rect x="0.5" y="0.5" width="494" height="194" rx="8" fill="#242938" stroke="#30363D"/>
   
-  <text x="25" y="35" class="header">⚡ Priyansh's GitHub Stats (All Repos)</text>
+  <text x="25" y="36" class="header">⚡ Priyansh's GitHub Stats</text>
   
-  <g transform="translate(25, 55)">
+  <g transform="translate(25, 52)">
     <!-- Total Authored Commits -->
-    <g transform="translate(0, 15)">
+    <g transform="translate(0, 16)">
       <circle cx="6" cy="6" r="4" fill="#27E8A7"/>
-      <text x="20" y="10" class="stat-label">Total Commits:</text>
-      <text x="175" y="10" class="stat-value">{total_commits}</text>
-      <text x="205" y="10" class="stat-sub">({total_private_commits} private, {total_public_commits} public)</text>
+      <text x="22" y="11" class="stat-label">Total Commits:</text>
+      <text x="180" y="11" class="stat-value">{total_commits}</text>
     </g>
     
     <!-- Total Contributions -->
-    <g transform="translate(0, 42)">
+    <g transform="translate(0, 44)">
       <circle cx="6" cy="6" r="4" fill="#89DDFF"/>
-      <text x="20" y="10" class="stat-label">Total Contributions:</text>
-      <text x="175" y="10" class="stat-value">{total_contributions}</text>
-      <text x="205" y="10" class="stat-sub">(public + private graph)</text>
+      <text x="22" y="11" class="stat-label">Total Contributions:</text>
+      <text x="180" y="11" class="stat-value">{total_contributions}</text>
     </g>
     
     <!-- Current Streak -->
-    <g transform="translate(0, 69)">
+    <g transform="translate(0, 72)">
       <circle cx="6" cy="6" r="4" fill="#FF7B72"/>
-      <text x="20" y="10" class="stat-label">Current Streak:</text>
-      <text x="175" y="10" class="stat-value">{current_streak} Days</text>
-      <text x="245" y="10" class="stat-sub">(Active today 🔥)</text>
+      <text x="22" y="11" class="stat-label">Current Streak:</text>
+      <text x="180" y="11" class="stat-value">{current_streak} Days 🔥</text>
     </g>
     
     <!-- Repositories -->
-    <g transform="translate(0, 96)">
+    <g transform="translate(0, 100)">
       <circle cx="6" cy="6" r="4" fill="#D2A8FF"/>
-      <text x="20" y="10" class="stat-label">Total Repositories:</text>
-      <text x="175" y="10" class="stat-value">{total_repos_count}</text>
-      <text x="205" y="10" class="stat-sub">({total_private_repos} private, {total_public_repos} public)</text>
+      <text x="22" y="11" class="stat-label">Total Repositories:</text>
+      <text x="180" y="11" class="stat-value">{total_repos_count}</text>
     </g>
   </g>
   
-  <!-- Badge Graphic / Level -->
+  <!-- Rank / Grade Badge -->
   <g transform="translate(420, 105)">
     <circle cx="0" cy="0" r="32" class="rank-circle"/>
     <text x="0" y="8" text-anchor="middle" class="rank-text">A+</text>
@@ -241,7 +239,7 @@ def main():
     os.makedirs("C:/Users/HP/.gemini/antigravity/brain/2db16fc2-ad03-4dbc-99a2-7c10db40961b/scratch/assets", exist_ok=True)
     with open("C:/Users/HP/.gemini/antigravity/brain/2db16fc2-ad03-4dbc-99a2-7c10db40961b/scratch/assets/github-stats.svg", "w", encoding="utf-8") as f:
         f.write(stats_svg)
-    print("Generated assets/github-stats.svg successfully!")
+    print("Generated clean SVG assets/github-stats.svg successfully!")
 
 if __name__ == "__main__":
     main()
