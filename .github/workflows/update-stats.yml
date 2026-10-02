@@ -1,4 +1,4 @@
-name: Auto-Sync GitHub Stats & Commits
+name: Auto-Sync GitHub Stats & Streak
 
 on:
   schedule:
@@ -28,14 +28,14 @@ jobs:
         run: |
           python .github/scripts/generate_stats.py
 
-      - name: Commit & Push Updated Stats Card
+      - name: Commit & Push Updated Stats Cards
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add assets/github-stats.svg
+          git add assets/github-stats.svg assets/streak-stats.svg
           if git diff --staged --quiet; then
             echo "No stats changes detected."
           else
-            git commit -m "chore(stats): auto-update stats card with latest commits"
+            git commit -m "chore(stats): auto-update stats & streak cards with latest commits"
             git push
           fi
