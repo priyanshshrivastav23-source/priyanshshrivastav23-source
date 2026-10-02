@@ -45,9 +45,25 @@ def graphql_query(token, query, variables=None):
     with urllib.request.urlopen(req) as resp:
         return json.loads(resp.read().decode("utf-8"))
 
+def calculate_rank(total_commits, total_contributions, current_streak, longest_streak):
+    # Dynamic Rank Score based on commit consistency, volume & streak
+    score = (total_commits * 1.5) + (total_contributions * 1.0) + (current_streak * 5) + (longest_streak * 3)
+    
+    if score >= 350:
+        return "S+"
+    elif score >= 200:
+        return "S"
+    elif score >= 100:
+        return "A+"
+    elif score >= 50:
+        return "A"
+    elif score >= 25:
+        return "B+"
+    else:
+        return "B"
+
 def main():
     username, token = get_git_token()
-    print(f"Generating stats strictly for username: {username} (excluding priyansh@email.com / priyansh@gmail.com / priyansh605)...")
     
     # 1. Fetch all repositories (public and private)
     all_repos = []
@@ -63,10 +79,7 @@ def main():
     total_repos_count = len(all_repos)
 
     # 2. Count commits ONLY authored by priyanshshrivastav23-source
-    # Exclude any commits with email priyansh@email.com or priyansh@gmail.com or login priyansh605
     total_commits = 0
-    repo_breakdown = {}
-    
     for repo in all_repos:
         repo_name = repo["full_name"]
         c_page = 1
@@ -85,27 +98,18 @@ def main():
         for c in commits_list:
             author_obj = c.get("author") or {}
             author_login = (author_obj.get("login") or "").lower()
-            
             commit_info = c.get("commit", {})
             commit_author = commit_info.get("author", {})
-            c_name = (commit_author.get("name") or "").strip().lower()
             c_email = (commit_author.get("email") or "").strip().lower()
             
-            # Explicitly exclude priyansh@email.com / priyansh@gmail.com / priyansh605
+            # Filter out alternate IDs
             if "priyansh@email.com" in c_email or "priyansh@gmail.com" in c_email or author_login == "priyansh605":
                 continue
                 
-            # Only include if author_login matches priyanshshrivastav23-source or official email priyanshshrivastav8@gmail.com / priyanshshrivastav23@gmail.com
             if author_login == username.lower() or c_email in ["priyanshshrivastav8@gmail.com", "priyanshshrivastav23@gmail.com"]:
                 user_c_count += 1
                 
-        if user_c_count > 0:
-            repo_breakdown[repo_name] = user_c_count
         total_commits += user_c_count
-
-    print(f"Total Commits strictly by {username}: {total_commits}")
-    for r, cnt in repo_breakdown.items():
-        print(f"  {r}: {cnt} commits")
 
     # 3. Fetch GraphQL Contributions and Streak
     viewer_query = """
@@ -184,9 +188,11 @@ def main():
             current_streak += 1
             p -= 1
 
-    print(f"Total Contributions: {total_contributions}, Current Streak: {current_streak}, Longest Streak: {longest_streak}")
+    # Dynamically compute rank
+    rank = calculate_rank(total_commits, total_contributions, current_streak, longest_streak)
+    print(f"Calculated Dynamic Rank: {rank} (Commits={total_commits}, Contributions={total_contributions}, Streak={current_streak})")
 
-    # Generate Clean, Beautiful Modern SVG Stats Card (Numbers ONLY, No private/public subtitles)
+    # Generate Clean, Beautiful Modern SVG Stats Card
     stats_svg = f"""<svg width="495" height="195" viewBox="0 0 495 195" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="GitHub Stats Card">
   <style>
     .header {{ font: 700 18px 'Segoe UI', Ubuntu, Sans-Serif; fill: #82AAFF; }}
@@ -229,17 +235,17 @@ def main():
     </g>
   </g>
   
-  <!-- Rank / Grade Badge -->
+  <!-- Dynamic Rank / Grade Badge -->
   <g transform="translate(420, 105)">
     <circle cx="0" cy="0" r="32" class="rank-circle"/>
-    <text x="0" y="8" text-anchor="middle" class="rank-text">A+</text>
+    <text x="0" y="8" text-anchor="middle" class="rank-text">{rank}</text>
   </g>
 </svg>"""
 
     os.makedirs("C:/Users/HP/.gemini/antigravity/brain/2db16fc2-ad03-4dbc-99a2-7c10db40961b/scratch/assets", exist_ok=True)
     with open("C:/Users/HP/.gemini/antigravity/brain/2db16fc2-ad03-4dbc-99a2-7c10db40961b/scratch/assets/github-stats.svg", "w", encoding="utf-8") as f:
         f.write(stats_svg)
-    print("Generated clean SVG assets/github-stats.svg successfully!")
+    print("Generated dynamic rank SVG successfully!")
 
 if __name__ == "__main__":
     main()
