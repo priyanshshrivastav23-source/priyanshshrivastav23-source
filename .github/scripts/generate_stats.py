@@ -45,23 +45,6 @@ def graphql_query(token, query, variables=None):
     with urllib.request.urlopen(req) as resp:
         return json.loads(resp.read().decode("utf-8"))
 
-def calculate_rank(total_commits, total_contributions, current_streak, longest_streak):
-    # Dynamic Rank Score based on commit consistency, volume & streak
-    score = (total_commits * 1.5) + (total_contributions * 1.0) + (current_streak * 5) + (longest_streak * 3)
-    
-    if score >= 350:
-        return "S+"
-    elif score >= 200:
-        return "S"
-    elif score >= 100:
-        return "A+"
-    elif score >= 50:
-        return "A"
-    elif score >= 25:
-        return "B+"
-    else:
-        return "B"
-
 def main():
     username, token = get_git_token()
     
@@ -155,17 +138,6 @@ def main():
 
     sorted_dates = sorted(all_days.keys())
     
-    # Calculate streak
-    longest_streak = 0
-    curr_t = 0
-    for d in sorted_dates:
-        if all_days[d] > 0:
-            curr_t += 1
-            if curr_t > longest_streak:
-                longest_streak = curr_t
-        else:
-            curr_t = 0
-
     today_utc = datetime.now(timezone.utc).strftime("%Y-%m-%d")
     yesterday_utc = (datetime.now(timezone.utc) - timedelta(days=1)).strftime("%Y-%m-%d")
     
@@ -188,64 +160,52 @@ def main():
             current_streak += 1
             p -= 1
 
-    # Dynamically compute rank
-    rank = calculate_rank(total_commits, total_contributions, current_streak, longest_streak)
-    print(f"Calculated Dynamic Rank: {rank} (Commits={total_commits}, Contributions={total_contributions}, Streak={current_streak})")
-
-    # Generate Clean, Beautiful Modern SVG Stats Card
+    # Minimalist Clean SVG Stats Card (Without any Rank/Badge Circle)
     stats_svg = f"""<svg width="495" height="195" viewBox="0 0 495 195" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="GitHub Stats Card">
   <style>
     .header {{ font: 700 18px 'Segoe UI', Ubuntu, Sans-Serif; fill: #82AAFF; }}
     .stat-label {{ font: 600 14px 'Segoe UI', Ubuntu, Sans-Serif; fill: #82AAFF; }}
     .stat-value {{ font: 700 16px 'Segoe UI', Ubuntu, Sans-Serif; fill: #FFFFFF; }}
-    .rank-circle {{ stroke: #82AAFF; stroke-width: 4; fill: none; }}
-    .rank-text {{ font: 800 24px 'Segoe UI', Ubuntu, Sans-Serif; fill: #89DDFF; }}
   </style>
   <rect x="0.5" y="0.5" width="494" height="194" rx="8" fill="#242938" stroke="#30363D"/>
   
-  <text x="25" y="36" class="header">⚡ Priyansh's GitHub Stats</text>
+  <text x="30" y="38" class="header">⚡ Priyansh's GitHub Stats</text>
   
-  <g transform="translate(25, 52)">
+  <g transform="translate(30, 54)">
     <!-- Total Authored Commits -->
     <g transform="translate(0, 16)">
       <circle cx="6" cy="6" r="4" fill="#27E8A7"/>
-      <text x="22" y="11" class="stat-label">Total Commits:</text>
-      <text x="180" y="11" class="stat-value">{total_commits}</text>
+      <text x="24" y="11" class="stat-label">Total Commits:</text>
+      <text x="210" y="11" class="stat-value">{total_commits}</text>
     </g>
     
     <!-- Total Contributions -->
     <g transform="translate(0, 44)">
       <circle cx="6" cy="6" r="4" fill="#89DDFF"/>
-      <text x="22" y="11" class="stat-label">Total Contributions:</text>
-      <text x="180" y="11" class="stat-value">{total_contributions}</text>
+      <text x="24" y="11" class="stat-label">Total Contributions:</text>
+      <text x="210" y="11" class="stat-value">{total_contributions}</text>
     </g>
     
     <!-- Current Streak -->
     <g transform="translate(0, 72)">
       <circle cx="6" cy="6" r="4" fill="#FF7B72"/>
-      <text x="22" y="11" class="stat-label">Current Streak:</text>
-      <text x="180" y="11" class="stat-value">{current_streak} Days 🔥</text>
+      <text x="24" y="11" class="stat-label">Current Streak:</text>
+      <text x="210" y="11" class="stat-value">{current_streak} Days 🔥</text>
     </g>
     
     <!-- Repositories -->
     <g transform="translate(0, 100)">
       <circle cx="6" cy="6" r="4" fill="#D2A8FF"/>
-      <text x="22" y="11" class="stat-label">Total Repositories:</text>
-      <text x="180" y="11" class="stat-value">{total_repos_count}</text>
+      <text x="24" y="11" class="stat-label">Total Repositories:</text>
+      <text x="210" y="11" class="stat-value">{total_repos_count}</text>
     </g>
-  </g>
-  
-  <!-- Dynamic Rank / Grade Badge -->
-  <g transform="translate(420, 105)">
-    <circle cx="0" cy="0" r="32" class="rank-circle"/>
-    <text x="0" y="8" text-anchor="middle" class="rank-text">{rank}</text>
   </g>
 </svg>"""
 
     os.makedirs("C:/Users/HP/.gemini/antigravity/brain/2db16fc2-ad03-4dbc-99a2-7c10db40961b/scratch/assets", exist_ok=True)
     with open("C:/Users/HP/.gemini/antigravity/brain/2db16fc2-ad03-4dbc-99a2-7c10db40961b/scratch/assets/github-stats.svg", "w", encoding="utf-8") as f:
         f.write(stats_svg)
-    print("Generated dynamic rank SVG successfully!")
+    print("Generated minimalist stats SVG without rank badge!")
 
 if __name__ == "__main__":
     main()
