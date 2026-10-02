@@ -1,0 +1,53 @@
+<svg width="495" height="195" viewBox="0 0 495 195" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="GitHub Stats Card">
+  <style>
+    .header { font: 700 18px 'Segoe UI', Ubuntu, Sans-Serif; fill: #82AAFF; }
+    .stat-label { font: 600 13px 'Segoe UI', Ubuntu, Sans-Serif; fill: #82AAFF; }
+    .stat-value { font: 700 14px 'Segoe UI', Ubuntu, Sans-Serif; fill: #FFFFFF; }
+    .stat-sub { font: 400 11px 'Segoe UI', Ubuntu, Sans-Serif; fill: #27E8A7; }
+    .rank-circle { stroke: #82AAFF; stroke-width: 4; fill: none; }
+    .rank-text { font: 800 24px 'Segoe UI', Ubuntu, Sans-Serif; fill: #89DDFF; }
+  </style>
+  <rect x="0.5" y="0.5" width="494" height="194" rx="8" fill="#242938" stroke="#30363D"/>
+  
+  <text x="25" y="35" class="header">⚡ Priyansh's GitHub Stats (All Repos)</text>
+  
+  <g transform="translate(25, 55)">
+    <!-- Total Authored Commits -->
+    <g transform="translate(0, 15)">
+      <circle cx="6" cy="6" r="4" fill="#27E8A7"/>
+      <text x="20" y="10" class="stat-label">Total Commits:</text>
+      <text x="175" y="10" class="stat-value">75</text>
+      <text x="205" y="10" class="stat-sub">(52 private, 23 public)</text>
+    </g>
+    
+    <!-- Total Contributions -->
+    <g transform="translate(0, 42)">
+      <circle cx="6" cy="6" r="4" fill="#89DDFF"/>
+      <text x="20" y="10" class="stat-label">Total Contributions:</text>
+      <text x="175" y="10" class="stat-value">48</text>
+      <text x="205" y="10" class="stat-sub">(public + private graph)</text>
+    </g>
+    
+    <!-- Current Streak -->
+    <g transform="translate(0, 69)">
+      <circle cx="6" cy="6" r="4" fill="#FF7B72"/>
+      <text x="20" y="10" class="stat-label">Current Streak:</text>
+      <text x="175" y="10" class="stat-value">3 Days</text>
+      <text x="245" y="10" class="stat-sub">(Active today 🔥)</text>
+    </g>
+    
+    <!-- Repositories -->
+    <g transform="translate(0, 96)">
+      <circle cx="6" cy="6" r="4" fill="#D2A8FF"/>
+      <text x="20" y="10" class="stat-label">Total Repositories:</text>
+      <text x="175" y="10" class="stat-value">11</text>
+      <text x="205" y="10" class="stat-sub">(4 private, 7 public)</text>
+    </g>
+  </g>
+  
+  <!-- Badge Graphic / Level -->
+  <g transform="translate(420, 105)">
+    <circle cx="0" cy="0" r="32" class="rank-circle"/>
+    <text x="0" y="8" text-anchor="middle" class="rank-text">A+</text>
+  </g>
+</svg>
