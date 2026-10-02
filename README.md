@@ -182,13 +182,13 @@ Whether it's an AI system, mobile application, AR experience, robotics project, 
 
 <p align="center">
   <a href="https://github.com/priyanshshrivastav23-source">
-    <img src="./assets/github-stats.svg" alt="Priyansh's Full GitHub Stats (Public + Private)" />
+    <img src="./assets/github-stats.svg" alt="Priyansh's GitHub Stats" />
   </a>
 </p>
 
 <p align="center">
   <a href="https://github.com/priyanshshrivastav23-source">
-    <img src="https://streak-stats.demolab.com/?user=priyanshshrivastav23-source&theme=blueberry&hide_border=false&border_radius=8" alt="GitHub Streak" />
+    <img src="./assets/streak-stats.svg" alt="Priyansh's GitHub Streak" />
   </a>
 </p>
 
