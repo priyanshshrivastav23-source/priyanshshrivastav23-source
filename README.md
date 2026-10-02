@@ -178,13 +178,23 @@ Whether it's an AI system, mobile application, AR experience, robotics project, 
 ![Canva](https://img.shields.io/badge/Canva-00C4CC?style=for-the-badge&logo=canva&logoColor=white)
 ![Adobe Photoshop](https://img.shields.io/badge/Adobe%20Photoshop-31A8FF?style=for-the-badge&logo=adobephotoshop&logoColor=white)
 
-## 📊 GitHub Stats:
+## 📊 GitHub Stats & Activity
 
-![](https://github-readme-stats.shion.dev/api?username=priyanshshrivastav23-source&theme=blueberry&hide_border=false&include_all_commits=true&count_private=true)
+<p align="center">
+  <a href="https://github.com/priyanshshrivastav23-source">
+    <img src="https://streak-stats.demolab.com/?user=priyanshshrivastav23-source&theme=blueberry&hide_border=false&border_radius=8" alt="GitHub Streak" />
+  </a>
+</p>
 
-![](https://streak-stats.demolab.com/?user=priyanshshrivastav23-source&theme=blueberry&hide_border=false)
+<p align="center">
+  <a href="https://github.com/priyanshshrivastav23-source">
+    <img src="https://github-readme-stats.vercel.app/api?username=priyanshshrivastav23-source&show_icons=true&theme=blueberry&hide_border=false&border_radius=8&count_private=true" alt="Priyansh's GitHub Stats" />
+  </a>
+  <a href="https://github.com/priyanshshrivastav23-source">
+    <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=priyanshshrivastav23-source&theme=blueberry&hide_border=false&border_radius=8&layout=compact" alt="Top Languages" />
+  </a>
+</p>
 
-![](https://github-readme-stats.shion.dev/api/top-langs/?username=priyanshshrivastav23-source&theme=blueberry&hide_border=false&include_all_commits=true&count_private=true)
 ### ✍️ Random Dev Quote
 ![](https://quotes-github-readme.vercel.app/api?type=horizontal&theme=radical)
 
