@@ -202,6 +202,8 @@ Whether it's an AI system, mobile application, AR experience, robotics project, 
 ![](https://quotes-github-readme.vercel.app/api?type=horizontal&theme=radical)
 
 ---
-[![](https://komarev.com/ghpvc/?username=priyanshshrivastav23-source&icon=0&color=0)](https://visitcount.itsvg.in)
+<p align="left">
+  <img src="https://komarev.com/ghpvc/?username=priyanshshrivastav23-source&label=Profile%20Views&color=0e75b6&style=flat" alt="Profile Views" />
+</p>
 
 <!-- Proudly created with GPRM ( https://gprm.itsvg.in ) -->
