@@ -8,8 +8,9 @@
   <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&pause=1000&color=58A6FF&center=true&vCenter=true&width=750&lines=Building+Ideas+into+Real+Solutions+%F0%9F%9A%80;AI%2FML+%7C+Robotics+%7C+Full+Stack+Development;Full+Stack+Developer+%7C+Problem+Solver;Always+Learning+%2C+Always+Building+%F0%9F%94%A5" alt="Typing SVG"/>
 </p>
 
+<h2 align="center">👋 Hey there! I'm Priyansh.</h2>
+
 <p align="center">
-  <h2 align="center">👋 Hey there! I'm Priyansh.</h2> <p align="left">
   <img src="https://komarev.com/ghpvc/?username=priyanshshrivastav23-source&label=Profile%20Views&color=0e75b6&style=flat" alt="Profile Views" />
 </p>
 
