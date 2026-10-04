@@ -10,11 +10,8 @@
 
 <h2 align="center">👋 Hey there! I'm Priyansh.</h2>
 
-<p align="center">
+<p>
   <img src="https://komarev.com/ghpvc/?username=priyanshshrivastav23-source&label=Profile%20Views&color=0e75b6&style=flat" alt="Profile Views" />
-</p>
-
-<p align="center">
   <a href="https://www.linkedin.com/in/priyansh-shrivastav-0648a531b/">
     <img src="https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white" alt="LinkedIn" />
   </a>
