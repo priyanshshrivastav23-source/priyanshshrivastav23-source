@@ -2,11 +2,14 @@ name: Auto-Sync GitHub Stats & Streak
 
 on:
   schedule:
-    - cron: '0 */2 * * *' # Automatically runs every 2 hours
+    - cron: '0 */6 * * *' # Automatically runs every 6 hours
   workflow_dispatch: # Allows manual trigger anytime
   push:
     branches:
       - main
+    paths-ignore:
+      - 'assets/**'
+      - 'README.md'
 
 jobs:
   update-stats:
@@ -16,6 +19,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -36,6 +41,7 @@ jobs:
           if git diff --staged --quiet; then
             echo "No stats changes detected."
           else
-            git commit -m "chore(stats): auto-update stats & streak cards with latest commits"
-            git push
+            git commit -m "chore(stats): auto-update stats & streak cards with latest activity"
+            git pull --rebase origin main
+            git push origin main
           fi
