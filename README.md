@@ -9,7 +9,10 @@
 </p>
 
 <p align="center">
-  <h2 align="center">👋 Hey there! I'm Priyansh.</h2>
+  <h2 align="center">👋 Hey there! I'm Priyansh.</h2> <p align="left">
+  <img src="https://komarev.com/ghpvc/?username=priyanshshrivastav23-source&label=Profile%20Views&color=0e75b6&style=flat" alt="Profile Views" />
+</p>
+
 </p>
 
 <p align="center">
