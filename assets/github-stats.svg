@@ -13,14 +13,14 @@
     <g transform="translate(0, 16)">
       <circle cx="6" cy="6" r="4" fill="#27E8A7"/>
       <text x="24" y="11" class="stat-label">Total Commits:</text>
-      <text x="210" y="11" class="stat-value">44</text>
+      <text x="210" y="11" class="stat-value">50</text>
     </g>
     
     <!-- Total Contributions -->
     <g transform="translate(0, 44)">
       <circle cx="6" cy="6" r="4" fill="#89DDFF"/>
       <text x="24" y="11" class="stat-label">Total Contributions:</text>
-      <text x="210" y="11" class="stat-value">75</text>
+      <text x="210" y="11" class="stat-value">81</text>
     </g>
     
     <!-- Current Streak -->
