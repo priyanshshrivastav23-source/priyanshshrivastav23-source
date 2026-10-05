@@ -13,7 +13,7 @@
   
   <!-- Column 1: Total Contributions -->
   <g transform="translate(82.5, 48)">
-    <text x="0" y="32" class="big-num">85</text>
+    <text x="0" y="32" class="big-num">87</text>
     <text x="0" y="68" class="lbl">Total Contributions</text>
     <text x="0" y="98" class="sub-lbl">Aug 22, 2025 - Present</text>
   </g>

@@ -20,7 +20,7 @@
     <g transform="translate(0, 44)">
       <circle cx="6" cy="6" r="4" fill="#89DDFF"/>
       <text x="24" y="11" class="stat-label">Total Contributions:</text>
-      <text x="210" y="11" class="stat-value">85</text>
+      <text x="210" y="11" class="stat-value">87</text>
     </g>
     
     <!-- Current Streak -->
