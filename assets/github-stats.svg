@@ -13,28 +13,28 @@
     <g transform="translate(0, 16)">
       <circle cx="6" cy="6" r="4" fill="#27E8A7"/>
       <text x="24" y="11" class="stat-label">Total Commits:</text>
-      <text x="210" y="11" class="stat-value">50</text>
+      <text x="210" y="11" class="stat-value">54</text>
     </g>
     
     <!-- Total Contributions -->
     <g transform="translate(0, 44)">
       <circle cx="6" cy="6" r="4" fill="#89DDFF"/>
       <text x="24" y="11" class="stat-label">Total Contributions:</text>
-      <text x="210" y="11" class="stat-value">89</text>
+      <text x="210" y="11" class="stat-value">90</text>
     </g>
     
     <!-- Current Streak -->
     <g transform="translate(0, 72)">
       <circle cx="6" cy="6" r="4" fill="#FF7B72"/>
       <text x="24" y="11" class="stat-label">Current Streak:</text>
-      <text x="210" y="11" class="stat-value">7 Days 🔥</text>
+      <text x="210" y="11" class="stat-value">8 Days 🔥</text>
     </g>
     
     <!-- Repositories -->
     <g transform="translate(0, 100)">
       <circle cx="6" cy="6" r="4" fill="#D2A8FF"/>
       <text x="24" y="11" class="stat-label">Total Repositories:</text>
-      <text x="210" y="11" class="stat-value">6</text>
+      <text x="210" y="11" class="stat-value">7</text>
     </g>
   </g>
 </svg>
