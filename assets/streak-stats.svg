@@ -22,9 +22,9 @@
   <g transform="translate(247.5, 48)">
     <circle cx="0" cy="22" r="38" stroke="#82AAFF" stroke-width="4" fill="none"/>
     <text x="0" y="-12" text-anchor="middle" font-size="20">🔥</text>
-    <text x="0" y="32" class="curr-num">9</text>
+    <text x="0" y="32" class="curr-num">1</text>
     <text x="0" y="92" class="lbl" font-weight="700" fill="#89DDFF">Current Streak</text>
-    <text x="0" y="116" class="sub-lbl">Sep 30 - Oct 08</text>
+    <text x="0" y="116" class="sub-lbl">Oct 10 - Oct 10</text>
   </g>
   
   <!-- Column 3: Longest Streak -->
