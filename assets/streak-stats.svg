@@ -13,7 +13,7 @@
   
   <!-- Column 1: Total Contributions -->
   <g transform="translate(82.5, 48)">
-    <text x="0" y="32" class="big-num">109</text>
+    <text x="0" y="32" class="big-num">110</text>
     <text x="0" y="68" class="lbl">Total Contributions</text>
     <text x="0" y="98" class="sub-lbl">Aug 22, 2025 - Present</text>
   </g>
@@ -22,9 +22,9 @@
   <g transform="translate(247.5, 48)">
     <circle cx="0" cy="22" r="38" stroke="#82AAFF" stroke-width="4" fill="none"/>
     <text x="0" y="-12" text-anchor="middle" font-size="20">🔥</text>
-    <text x="0" y="32" class="curr-num">0</text>
+    <text x="0" y="32" class="curr-num">1</text>
     <text x="0" y="92" class="lbl" font-weight="700" fill="#89DDFF">Current Streak</text>
-    <text x="0" y="116" class="sub-lbl">None</text>
+    <text x="0" y="116" class="sub-lbl">Oct 29 - Oct 29</text>
   </g>
   
   <!-- Column 3: Longest Streak -->
