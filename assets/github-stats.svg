@@ -34,7 +34,7 @@
     <g transform="translate(0, 100)">
       <circle cx="6" cy="6" r="4" fill="#D2A8FF"/>
       <text x="24" y="11" class="stat-label">Total Repositories:</text>
-      <text x="210" y="11" class="stat-value">8</text>
+      <text x="210" y="11" class="stat-value">7</text>
     </g>
   </g>
 </svg>
